@@ -1,8 +1,14 @@
 import { Router } from 'express';
-import { todosController } from '../controllers/reviews.controllerr';
+import { reviewsController } from '../controllers/reviews.controller';
+import { booksController } from '../controllers/books.controller';
+import { usersController } from '../controllers/users.controller';
 
 const router = Router();
 
-export default router;
+router.use('/reviews', reviewsController);
 
-// NARAZIE NIE DZIALA
+router.use('/books', booksController);
+
+router.use('/users', usersController);
+
+export default router;
