@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { body, param } from 'express-validator';
+import { body, param, query } from 'express-validator';
 import { StatusCodes } from 'http-status-codes';
 import { validateRequest, errorHandler, ValidationError } from '../middlewares/validation.middleware';
 
@@ -239,9 +239,9 @@ booksController.post(
 booksController.get(
   '/',
   [
-    body('author').optional().isString(),
-    body('minPrice').optional().isFloat({ min: 0 }),
-    body('maxPrice').optional().isFloat({ min: 0 }),
+    query('author').optional().isString(),
+    query('minPrice').optional().isFloat({ min: 0 }),
+    query('maxPrice').optional().isFloat({ min: 0 }),
     validateRequest
   ],
   (req: Request, res: Response, next: NextFunction): void => {

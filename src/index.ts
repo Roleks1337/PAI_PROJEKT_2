@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(express.json());
 
-app.use('/', reviewsController)
-app.use('/', booksController)
-app.use('/', usersController)
+app.use('/reviews', reviewsController)
+app.use('/books', booksController)
+app.use('/users', usersController)
 
 app.get('/', (req, res) => {
   res.send('Main Page');
